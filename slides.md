@@ -6,16 +6,15 @@ highlighter: shiki
 lineNumbers: false
 info: |
   Volar: The Unsung Hero
-  Keynote slides for the talk on Volar, the engine powering Vue.js development experience.
+  Unlock the secrets of Volar, the engine powering the Vue.js development experience, with an under-the-hood look at its architecture and core functionalities. We will explore how Volar achieves its advanced language support and seamless TypeScript integration, enhancing productivity and development workflows. This talk promises a deep dive into the technical foundations of Volar, equipping attendees with the knowledge to fully harness its capabilities in their Vue.js projects.
 drawings:
   persist: false
 transition: slide-left
 title: "Volar: The Unsung Hero"
-layout: cover
+layout: image
+image: /volar.png
 ---
 
-# Volar
-## The Unsung Hero
 
 ---
 layout: center
