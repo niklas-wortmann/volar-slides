@@ -190,7 +190,7 @@ graph TD
 1. AST parsing
 2. Type inference
 3. LS integration
-4. Optimizations
+4. TODO ADD HERE
 
 <style>
     li{
@@ -274,7 +274,7 @@ graph TD
 # Superpowers
 
 - Cross-file analysis 🕵️
-- Template type-checking 🧪
+- type-checking 🧪
 - High performance 💪
 - Extensibility 🔌
 
