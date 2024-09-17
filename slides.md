@@ -323,11 +323,21 @@ layout: full
 ```mermaid
 flowchart LR
   A["Vue Language Server"]<-->B["LSP Client"]
-  subgraph IDE
+  subgraph one["Vue Plugin"]
   B["LSP Client"]<-->C["Internal Model"]
-  D["Other IDE Context"]-->C
-  E["WebStorm"]<-->C
+  E["TypeScript Model"]-->C
+  F["CSS Language Support"]-->C
+  G["HTML Language Support"]-->C
   end
+  subgraph two["IDE Features"]
+  Testing ~~~ Documentation
+  Documentation ~~~ I
+  Debugging ~~~ Testing
+  Refactoring ~~~ I
+  I["Quick Navigation"] ~~~ Refactoring
+  end
+  C --> two
+  
 ```
 
 ---
