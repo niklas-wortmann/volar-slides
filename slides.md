@@ -90,11 +90,17 @@ layout: center
 
 # Volar
 
-The engine powering Vue.js development
+The engine powering Vue.js development <span v-click>and more...</span>
 
 ---
 layout: image
-image: /volar-spiderman-meme.jpg
+image: /epic-handshake.png
+backgroundSize: contain
+---
+
+---
+layout: image
+image: /Four-arm-handshake-meme.png
 backgroundSize: contain
 ---
 
@@ -190,14 +196,7 @@ graph TD
 1. AST parsing
 2. Type inference
 3. LS integration
-4. TODO ADD HERE
 
-<style>
-    li{
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-</style>
 
 ---
 ---
@@ -268,6 +267,24 @@ graph TD
 
 # Virtual Files
 
+<div class="w-full h-90 border-b-white" style="border: 1px solid white; overflow: hidden; border-radius: 50px;">
+    <div class="w-full h-10 flex items-center justify-center" style="background-color: #152238; padding-left: 30px"><span class="text-2xl">SomeFile.vue</span></div>
+    <div class="w-full h-70 flex justify-between items-center text-4xl p-4">
+        <div class="flex flex-col items-center">
+            <mdi:file class="text-6xl"></mdi:file>
+            <span>TypeScript</span>
+        </div>
+        <div class="flex flex-col items-center">
+             <mdi:file class="text-6xl"></mdi:file>
+            <span>HTML</span>
+        </div>
+        <div class="flex flex-col items-center">
+             <mdi:file class="text-6xl">CSS</mdi:file>
+            <span>CSS</span>
+        </div>
+    </div>
+</div>
+
 ---
 ---
 
@@ -296,12 +313,25 @@ graph TD
 layout: full
 ---
 
-# Volar in Action
-[Live Demo Placeholder]
+# Take Over Mode
 
 ---
 ---
 
+# How WebStorm handles Language Server
+
+```mermaid
+flowchart LR
+  A["Vue Language Server"]<-->B["LSP Client"]
+  subgraph IDE
+  B["LSP Client"]<-->C["Internal Model"]
+  D["Other IDE Context"]-->C
+  E["WebStorm"]<-->C
+  end
+```
+
+---
+---
 # The Future
 
 <ul>
