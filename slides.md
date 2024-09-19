@@ -84,6 +84,7 @@ backgroundSize: contain
 layout: introduction
 ---
 
+
 ---
 layout: center
 ---
@@ -134,6 +135,53 @@ graph LR
     linkStyle default background-color:#121,color:white
 ```
 </div>
+
+---
+---
+# LSP Message Format
+
+````md magic-move
+```json{*|2|3|4|6-8|9-12}
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "textDocument/completion",
+  "params": {
+    "textDocument": {
+      "uri": "file:///path/to/file.txt"
+    },
+    "position": {
+      "line": 10,
+      "character": 5
+    }
+  }
+}
+```
+```json{*|3|7-12}
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "isIncomplete": false,
+    "items": [
+      {
+        "label": "print",
+        "kind": 3, // Function
+        "detail": "print(value: any): void",
+        "documentation": "Prints a value to the console."
+      },
+      {
+        "label": "println",
+        "kind": 3, // Function
+        "detail": "println(value: any): void",
+        "documentation": "Prints a value to the console and adds a new line."
+      }
+      // ... more items ...
+    ]
+  }
+}
+```
+````
 
 ---
 layout: center
@@ -309,11 +357,6 @@ graph TD
 
 <img src="/volar-labs.png" />
 
----
-layout: full
----
-
-# Take Over Mode
 
 ---
 ---
@@ -364,6 +407,13 @@ layout: cover
 ---
 
 # Why should I care?!
+
+---
+layout: quote
+quote: You cannot teach a man anything, you can only help him find it within himself.
+author: Galileo Galilei
+image: /galileo.png
+---
 
 ---
 layout: outro
