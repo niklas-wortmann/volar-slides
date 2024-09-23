@@ -11,7 +11,7 @@
     "@slidev/cli": "0.48.3",
     "@slidev/theme-default": "latest",
     "vue": "^3.4.21",
-    "slidev-theme-wordman": "latest",
+    "slidev-theme-wordman": "0.0.9",
     "prettier-plugin-slidev": "1.0.5"
   }
 }
