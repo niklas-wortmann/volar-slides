@@ -126,7 +126,7 @@ backgroundSize: contain
 ---
 ---
 
-# What is a LSP
+# What is an LSP
 
 <div class="w-full h-90 flex items-center justify-center">
 ```mermaid {scale: 2}
