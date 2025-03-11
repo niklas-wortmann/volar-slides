@@ -336,6 +336,36 @@ graph TD
 ---
 ---
 
+```vue{*|1|2-5|7|12|13}
+<script setup lang="ts">
+    interface Props {
+      message: string
+      count?: number
+    }
+
+    defineProps<Props>()
+</script>
+
+<template>
+    <div>
+        {{ message.toUpperCase() }}
+        {{ count?.toFixed(2) }}
+    </div>
+</template>
+```
+
+---
+---
+
+- Component Property Type Inference
+- Template Type Checking
+- Custom Directive Support
+- Slots and Scoped Slots
+
+
+---
+---
+
 # Superpowers
 
 - Cross-file analysis 🕵️
@@ -361,7 +391,7 @@ graph TD
 ---
 ---
 
-# How WebStorm handles Language Server
+# How WebStorm handles Vue Language Server
 
 ```mermaid
 flowchart LR
@@ -380,11 +410,82 @@ flowchart LR
   I["Quick Navigation"] ~~~ Refactoring
   end
   C --> two
-  
+
 ```
 
 ---
 ---
+
+<div class="h-full w-full grid grid-cols-3 grid-rows-2 gap-y-8 items-center">
+    <span class="text-4xl justify-self-start">Veture</span>
+    <span class="text-4xl justify-self-center">vs</span>
+    <span class="text-4xl justify-self-end">Volar</span>
+    <span v-click class="text-4xl justify-self-start">Takeover Mode</span>
+    <span v-click class="text-4xl justify-self-center">vs</span>
+    <span v-click class="text-4xl justify-self-end">Hybrid Mode</span>
+</div>
+
+---
+layout: center
+---
+
+# From Theory to Practice
+
+---
+---
+
+# DIY - Build Your Own Language Server
+
+````md magic-move
+```ts
+import { createConnection, createServer } from '@volar/language-server/node';
+
+
+const connection = createConnection();
+const server = createServer(connection);
+
+connection.listen();
+connection.onInitialize(params => {
+    ...
+})
+```
+
+```ts{*|6}
+connection.onInitialize(params => {
+    const tsdk = loadTsdkByPath(params.initializationOptions.typescript.tsdk, params.locale);
+        return server.initialize(
+            params,
+            createTypeScriptProject(tsdk.typescript, tsdk.diagnosticMessages, () => ({
+                languagePlugins: [html1LanguagePlugin],
+            })),
+            [
+                createHtmlService(),
+                createCssService(),
+                createEmmetService()
+                ...createTypeScriptServices(tsdk.typescript),
+            ])
+    })
+```
+```ts
+export const html1LanguagePlugin: LanguagePlugin<URI> = {
+    getLanguageId(uri) {
+		if (uri.path.endsWith('.html1')) {
+			return 'html1';
+		}
+	},
+	createVirtualCode(_uri, languageId, snapshot) {
+		if (languageId === 'html1') {
+			return new Html1VirtualCode(snapshot);
+		}
+	},
+	...
+}
+```
+
+````
+---
+---
+
 # The Future
 
 <ul>
@@ -417,5 +518,5 @@ image: /galileo.png
 
 ---
 layout: outro
-url: https://wordman.dev/talk/2024/vue-de
+url: https://wordman.dev/talk/2025/vue-amsterdam
 ---
